@@ -9,10 +9,9 @@ public class KongaTest extends BasePage{
     @Test
     public void testLoginPage()
     {
-        int addToCartButtonID = 1;
-        int numberOfItems = 4;
-        String userId = "Enter  username", password = "Enter password";
-        String cardNumber = "5334567822334456", date = "02/20", cvv = "254",item = "Drinks";
+        int addToCartButtonID = 1, numberOfItems = 4;;
+        String userId = "Enter username", password = "Enter password", item = "Drinks",
+                cardNumber = "5334567822334456", date = "02/20", cvv = "254";
 
         try {//Sign in to ​Konga
             //Replaced the class type name 'LoginPage' with 'var'
@@ -35,7 +34,7 @@ public class KongaTest extends BasePage{
             addToCartPage.itemCount(numberOfItems);
             //Click on checkout
             var checkOutPage = addToCartPage.clickCheckOut();
-            //Select the Pay Now Option to activate the “Continue to Payment” button - the user must have preselected pick up method
+            //Click "Pay Now" to enable “Continue to Payment” button - the user must have preselected pick up method
             checkOutPage.clickOnPayNow();
             //Click on the “Continue to Payment” button
             checkOutPage.clickContinueToPayment();

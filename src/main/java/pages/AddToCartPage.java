@@ -18,16 +18,18 @@ public class AddToCartPage {
     //Check the number of items in the cart
     public void itemCount(int count) throws InterruptedException
     {
+        //Convert value showing quantity of an item from String to integer and store in itemNumber variable
         int itemNumber = Integer.parseInt(driver.findElement(totalItemCount).getText());
 
-        //If the item is not equal to required amount, keep adding
+        //Compare the current quantity of an item with the expected quantity and increment until they are equal
         while (itemNumber != count)
         {
             //Click the + button to increase the number of the selected item
             driver.findElement(addItem).click();
-            //update the count of items
+            //update the value of the quantity in the variable after the increment
             itemNumber = Integer.parseInt(driver.findElement(totalItemCount).getText());
         }
+        //Wait for the check out button to load
         Thread.sleep(5000);
     }
 
@@ -35,6 +37,7 @@ public class AddToCartPage {
     public CheckOutPage clickCheckOut() throws InterruptedException
     {
         driver.findElement(checkOutButton).click();
+        //Wait for the checkout page to load
         Thread.sleep(7000);
         return new CheckOutPage(driver);
     }
