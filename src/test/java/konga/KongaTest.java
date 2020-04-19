@@ -3,15 +3,18 @@ package konga;
 import base.BasePage;
 import org.testng.annotations.Test;
 import pages.*;
+import java.util.Random;
 
 
 public class KongaTest extends BasePage{
     @Test
     public void testLoginPage()
     {
-        int addToCartButtonID = 1, numberOfItems = 4;
-        String userId = "Enter username", password = "Enter password", item = "Drinks",
-                cardNumber = "5334567822334456", date = "02/20", cvv = "254";
+        int addToCartButtonID = 1, numberOfItems = 4, minPin =0, maxPin = 9, pinEnteries = 0, totalPinEntered = 4;
+        String userId = "Enter Username", password = "Enter Password", item = "Drinks",
+                cardNumber = "5334 5678 2233 4456", date = "02/20", cvv = "254";
+        //Instantiate random class
+        Random random = new Random();
 
         try {//Sign in to ​Konga
             //Replaced the class type name 'LoginPage' with 'var'
@@ -40,8 +43,19 @@ public class KongaTest extends BasePage{
             checkOutPage.clickContinueToPayment();
             //Select the “CARD” payment method
             checkOutPage.clickOnPaymentType();
-            //Input a wrong card number, date, CVV and pin
+            //Input a wrong card number, date, CVV
             checkOutPage.enterCardDetails(cardNumber, date , cvv);
+            //Click on the Field for entering card pin
+            checkOutPage.clickOnPinField();
+            //Enter pin randomly
+            while(pinEnteries != totalPinEntered) {
+                //Store randomly entered pin
+                int enterPin = random.nextInt((maxPin - minPin + 1) + minPin);
+                //Enter the pin
+                checkOutPage.clickOnPin(enterPin);
+                //Increment pin entry
+                pinEnteries++;
+            }
             //Print out the error message for the card number field.
             System.out.println(checkOutPage.invalid_message());
         } catch (InterruptedException e) {
