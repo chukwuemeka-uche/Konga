@@ -20,6 +20,7 @@ public class HomePage {
         this.driver = driver;
     }
 
+    //Click the login/sign up button on the landing page
     public LoginPage clickLoginSignUpButton()
     {
         driver.findElements(loginButton).get(loginButtonElementID).click();
@@ -31,6 +32,7 @@ public class HomePage {
     {
         Actions executeAction = new Actions(driver);
 
+        //choose the category to mouse hover
         WebElement selectedCategory = driver.findElements(categoryBarElement).get(categoryNumber);
         //Mouse hover on the selected category
         executeAction.moveToElement(selectedCategory).perform();
