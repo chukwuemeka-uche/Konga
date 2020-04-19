@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AddToCartPage {
+
     private WebDriver driver;
     private By totalItemCount = By.xpath("//div[@class='a03ba_1Zj-T']");
     private By addItem = By.xpath("//button[@name='increment']");
@@ -18,14 +19,15 @@ public class AddToCartPage {
     public void itemCount(int count) throws InterruptedException
     {
         int itemNumber = Integer.parseInt(driver.findElement(totalItemCount).getText());
-       do
+
+        //If the item is not equal to required amount, keep adding
+        while (itemNumber != count)
         {
-            //if the item is equal to the amount entered, stop adding
-            if(itemNumber == count) break;
+            //Click the + button to increase the number of the selected item
             driver.findElement(addItem).click();
-            //Store the count of items
+            //update the count of items
             itemNumber = Integer.parseInt(driver.findElement(totalItemCount).getText());
-        } while (itemNumber != count); //If the item is not equal to required amount, keep adding
+        }
         Thread.sleep(5000);
     }
 

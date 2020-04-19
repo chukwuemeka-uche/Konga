@@ -1,13 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     private WebDriver driver;
@@ -35,14 +31,11 @@ public class HomePage {
     {
         Actions executeAction = new Actions(driver);
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
         WebElement selectedCategory = driver.findElements(categoryBarElement).get(categoryNumber);
         //Mouse hover on the selected category
         executeAction.moveToElement(selectedCategory).perform();
         Thread.sleep(7000);
 
-        //Wait for the element to appear before clicking on the selected subcategory
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(subcategory));
         //Click on the MacBook
         driver.findElement(subcategory).click();
         Thread.sleep(5000);

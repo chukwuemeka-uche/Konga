@@ -1,7 +1,6 @@
 package konga;
 
 import base.BasePage;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.testng.annotations.Test;
 import pages.*;
 
@@ -12,17 +11,20 @@ public class KongaTest extends BasePage{
     {
         int addToCartButtonID = 1;
         int numberOfItems = 4;
+        String userId = /*"Enter  username"*/ "cuche_s@yahoo.com", password = /*Enter password*/ "deFec75t.";
+        String cardNumber = "5334567822334456", date = "02/20", cvv = "254",item = "Drinks";
 
         try {//Sign in to ​Konga
             LoginPage loginPage = homePage.clickLoginSignUpButton();
             //Replace the username and password string with valid user details
-            loginPage.enterUsername("enter a username");
-            loginPage.enterPassword("enter a password");
-            homePage = loginPage.clickLoginButton();
+            loginPage.enterUsername(userId);
+            loginPage.enterPassword(password);
+            //Click on Login Button
+            loginPage.clickLoginButton();
             //Select any of the categories and subcategory
             SubCategoryPage subCategoryPage = homePage.clickCategoryAndSub();
             //Use the search box, search for an item
-            subCategoryPage.searchForAnItem("Drinks");
+            subCategoryPage.searchForAnItem(item);
             SearchPage searchPage = subCategoryPage.clickSearchButton();
             //Click on the add to cart button
             searchPage.clickOnAddToCart(addToCartButtonID);
@@ -39,7 +41,7 @@ public class KongaTest extends BasePage{
             //Select the “CARD” payment method
             checkOutPage.clickOnPaymentType();
             //Input a wrong card number, date, CVV and pin
-            checkOutPage.enterCardDetails("5334567822334456", "02/20", "254");
+            checkOutPage.enterCardDetails(cardNumber, date , cvv);
             //Print out the error message for the card number field.
             System.out.println(checkOutPage.invalid_message());
         } catch (InterruptedException e) {
