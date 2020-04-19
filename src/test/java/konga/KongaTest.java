@@ -9,7 +9,7 @@ public class KongaTest extends BasePage{
     @Test
     public void testLoginPage()
     {
-        int addToCartButtonID = 1, numberOfItems = 4;;
+        int addToCartButtonID = 1, numberOfItems = 4;
         String userId = "Enter username", password = "Enter password", item = "Drinks",
                 cardNumber = "5334567822334456", date = "02/20", cvv = "254";
 
