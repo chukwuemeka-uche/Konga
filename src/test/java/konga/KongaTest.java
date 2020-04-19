@@ -11,7 +11,7 @@ public class KongaTest extends BasePage{
     {
         int addToCartButtonID = 1;
         int numberOfItems = 4;
-        String userId = /*"Enter  username"*/ "cuche_s@yahoo.com", password = /*Enter password*/ "deFec75t.";
+        String userId = "Enter  username", password = "Enter password";
         String cardNumber = "5334567822334456", date = "02/20", cvv = "254",item = "Drinks";
 
         try {//Sign in to ​Konga
