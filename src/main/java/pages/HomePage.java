@@ -32,7 +32,6 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
-
     public void mouseHoverOnACategory() throws InterruptedException
     {
         Actions executeAction = new Actions(driver);

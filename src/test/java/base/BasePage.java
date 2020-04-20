@@ -11,7 +11,7 @@ public class BasePage {
     public HomePage homePage;
 
     //Initialize WebDriver, open the browser  & go to the URL before conducting the test
-    @BeforeSuite
+    @BeforeTest
     public void setup()
     {
         System.setProperty("webdriver.gecko.driver", "E:/test_automation/resources/geckodriver2.exe");
@@ -22,11 +22,16 @@ public class BasePage {
         driver.manage().window().maximize();
         //Open URL on browser
         driver.get("https://www.konga.com/");
+    }
+
+    @BeforeClass
+    public void sample()
+    {
         homePage = new HomePage(driver);
     }
 
     //Close WebDriver and browser after completing the test
-    @AfterSuite
+    @AfterTest
     public void tearDown()
     {
         driver.quit();
