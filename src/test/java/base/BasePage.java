@@ -2,13 +2,8 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import pages.HomePage;
-
-import java.util.concurrent.TimeUnit;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class BasePage {
 
@@ -16,7 +11,7 @@ public class BasePage {
     public HomePage homePage;
 
     //Initialize WebDriver, open the browser  & go to the URL before conducting the test
-    @BeforeClass
+    @BeforeSuite
     public void setup()
     {
         System.setProperty("webdriver.gecko.driver", "E:/test_automation/resources/geckodriver2.exe");
@@ -31,7 +26,7 @@ public class BasePage {
     }
 
     //Close WebDriver and browser after completing the test
-    @AfterClass
+    @AfterSuite
     public void tearDown()
     {
         driver.quit();
