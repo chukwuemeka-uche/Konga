@@ -3,9 +3,9 @@
 <suite name="Test Suite-1" >
     <test name="Test Case-1" group-by-instances="true">
         <classes>
-            <class name="loginPageTest.LoginTest"/>
-            <class name="hoverCategoryAndClickSubcategoryPageTest.HoverAndClickSubcategoryTest"/>
-            <class name="searchForAnItemTest.SearchTest"/>
+<!--            <class name="Tests.LoginTest"/>-->
+<!--            <class name="Tests.HoverAndClickSubcategoryTest"/>-->
+            <class name="Tests.SearchTest"/>
         </classes>
     </test>
 </suite>

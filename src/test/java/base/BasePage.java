@@ -1,37 +1,49 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import pages.HomePage;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasePage {
 
-    private WebDriver driver;
+    static WebDriver driver;
     public HomePage homePage;
 
     //Initialize WebDriver, open the browser  & go to the URL before conducting the test
-    @BeforeTest
+    @BeforeSuite
     public void setup()
     {
-        System.setProperty("webdriver.gecko.driver", "E:/test_automation/resources/geckodriver2.exe");
+
+        System.setProperty ( "webdriver.chrome.driver" , "C:/Users/User/eclipse-workspace/driver/chromedriver.exe" );
+
         //Initializing WebDriver
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver ();
+
+        //Delete cookies
+        driver.manage ().deleteAllCookies ();
 
         //Maximize web browser
         driver.manage().window().maximize();
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         //Open URL on browser
-        driver.get("https://www.konga.com/");
+
     }
 
-    @BeforeClass
-    public void sample()
+
+    public static  HomePage sample(String url)
     {
-        homePage = new HomePage(driver);
+        driver.get(url);
+
+        return new HomePage ( driver );
     }
 
     //Close WebDriver and browser after completing the test
-    @AfterTest
+    @AfterSuite
     public void tearDown()
     {
         driver.quit();

@@ -1,11 +1,10 @@
-package searchForAnItemTest;
+package Tests;
 
-import base.BasePage;
 import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class SearchTest extends BasePage {
+public class SearchTest extends HoverAndClickSubcategoryTest {
 
     String item = "Drinks";
     int addToCartButtonID = 1;
@@ -14,21 +13,21 @@ public class SearchTest extends BasePage {
     int  minPin =0, maxPin = 9, pinEntries = 0, totalPinEntered = 4;
     Random random = new Random();
 
-    @Test(priority = 3)
+    @Test(dependsOnMethods ={"testHoverAndClickSubcategory"})
     public void testSearchForAnItem() throws InterruptedException
     {
         homePage.searchForAnItem(item);
         homePage.clickSearchButton();
     }
 
-    @Test(priority = 4)
+    @Test(priority = 1)
     public void clickAddToCartButton() throws InterruptedException
     {
         //Click on the add to cart button
         homePage.clickOnAddToCart(addToCartButtonID);
     }
 
-    @Test(priority = 5)
+    @Test(priority = 2)
     public void manageCartMenu() throws InterruptedException
     {
         //Click on the My Cart Menu
