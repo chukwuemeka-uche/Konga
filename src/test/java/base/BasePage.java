@@ -25,6 +25,7 @@ public class BasePage {
     }
 
     @BeforeClass
+    //Make this static to prevent No exception error
     public static void instantiate()
     {
         homePage = new HomePage(driver);

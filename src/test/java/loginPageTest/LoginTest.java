@@ -7,7 +7,7 @@ public class LoginTest extends BasePage{
     @Test(priority = 1)
     public void testLoginPage() throws InterruptedException
     {
-        String userId = "cuche_s@yahoo.com", password = "deFec75t.";
+        String userId = "Enter username", password = "Enter Password.";
 
         //Sign in to ​Konga
         var loginPage = homePage.clickLoginSignUpButton();
