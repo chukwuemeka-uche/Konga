@@ -33,5 +33,4 @@ public class LoginPage {
         Thread.sleep(5000);
         return new HomePage(driver);
     }
-
 }

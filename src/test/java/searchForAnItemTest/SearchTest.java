@@ -1,22 +1,27 @@
 package searchForAnItemTest;
 
 import base.BasePage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import java.util.Random;
 
 public class SearchTest extends BasePage {
 
+
     String item = "Drinks";
     int addToCartButtonID = 1;
     int numberOfItems = 4;
     String  cardNumber = "5334 5678 2233 4456", date = "02/20", cvv = "254";
-    int  minPin =0, maxPin = 9, pinEntries = 0, totalPinEntered = 4;
+    int  minPin =0, maxPin = 9, pinEntries = 1, totalPinEntered = 4;
     Random random = new Random();
 
     @Test(priority = 3)
     public void testSearchForAnItem() throws InterruptedException
     {
+        //Click on Login Button
         homePage.searchForAnItem(item);
         homePage.clickSearchButton();
     }
@@ -56,6 +61,7 @@ public class SearchTest extends BasePage {
             //Increment pin entry
             pinEntries++;
         }
+
         //Print out the error message for the card number field.
         System.out.println(checkOutPage.invalid_message());
     }

@@ -7,11 +7,11 @@ import pages.HomePage;
 
 public class BasePage {
 
-    private WebDriver driver;
-    public HomePage homePage;
+    private static WebDriver driver;
+    public static HomePage homePage;
 
     //Initialize WebDriver, open the browser  & go to the URL before conducting the test
-    @BeforeTest
+    @BeforeSuite
     public void setup()
     {
         System.setProperty("webdriver.gecko.driver", "E:/test_automation/resources/geckodriver2.exe");
@@ -25,13 +25,13 @@ public class BasePage {
     }
 
     @BeforeClass
-    public void sample()
+    public static void instantiate()
     {
         homePage = new HomePage(driver);
     }
 
     //Close WebDriver and browser after completing the test
-    @AfterTest
+    @AfterSuite
     public void tearDown()
     {
         driver.quit();

@@ -18,6 +18,5 @@ public class LoginTest extends BasePage{
 
         //Click on Login Button
         homePage = loginPage.clickLoginButton();
-
     }
 }
