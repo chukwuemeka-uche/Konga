@@ -11,7 +11,7 @@ public class KongaTest extends BasePage{
     public void testLoginPage()
     {
         int addToCartButtonID = 1, numberOfItems = 4, minPin =0, maxPin = 9, pinEnteries = 0, totalPinEntered = 4;
-        String userId = "Enter Username", password = "Enter Password", item = "Drinks",
+        String userId = "Enter Username", password = "Enter Password" , item = "Drinks",
                 cardNumber = "5334 5678 2233 4456", date = "02/20", cvv = "254";
         //Instantiate random class
         Random random = new Random();
