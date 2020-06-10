@@ -7,8 +7,8 @@ import pages.HomePage;
 
 public class BasePage {
 
-    private WebDriver driver;
-    public HomePage homePage;
+    private static WebDriver driver;
+    public static HomePage homePage;
 
     //Initialize WebDriver, open the browser  & go to the URL before conducting the test
     @BeforeTest
