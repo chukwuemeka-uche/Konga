@@ -1,0 +1,38 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>test_automation_assignment</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.target>1.13</maven.compiler.target>\r\n        <maven.compiler.source>1.13</maven.compiler.source>\r\n    </properties>\r\n\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-chrome-driver</artifactId>\r\n            <version>3.141.59</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-support</artifactId>\r\n            <version>3.141.59</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>3.141.59</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.testng</groupId>\r\n            <artifactId>testng</artifactId>\r\n            <version>7.1.0</version>\r\n        </dependency>\r\n\r\n    </dependencies>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(revision a59f6cdd7add4d1d3257f62dc291e53bca8e2606)
++++ pom.xml	(date 1587747526362)
+@@ -8,7 +8,28 @@
+     <artifactId>test_automation_assignment</artifactId>
+     <version>1.0-SNAPSHOT</version>
+ 
++    <!--Got the solution to error:
++     [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:
++     testCompile (default-testCompile) on project test:
++     Fatal error compiling: error: invalid target release:1.13
++    from
++    https://mkyong.com/maven/maven-error-invalid-target-release-1-11/-->
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>3.8.0</version>
++                <configuration>
++                    <source>11</source>
++                    <target>11</target>
++                </configuration>
++            </plugin>
++        </plugins>
++    </build>
++
+     <properties>
++        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <maven.compiler.target>1.13</maven.compiler.target>
+         <maven.compiler.source>1.13</maven.compiler.source>
+     </properties>
